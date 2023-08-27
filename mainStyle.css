@@ -1,0 +1,69 @@
+body{
+    background-color: antiquewhite;
+}
+.countriesContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.clickButton{
+    background-color: antiquewhite;
+    border-radius: 20px;
+    padding: 10px;
+    margin: 10px 20px;
+}
+.clickButton:hover{
+    background-color: black;
+    color: whitesmoke;
+}
+.countriesSubContainer{
+    background-color: whitesmoke;
+    width: 80%;
+    padding: 30px 20px;
+    border-radius: 10px;
+    box-shadow: 5px 5px 10px rgba(137, 137, 137, 0.775);
+    text-align: center;
+}
+.CounButtonContainer{
+    overflow-y: scroll;
+    height: 300px;
+    margin: 20px 10px;
+    background-color: rgb(233, 233, 233);
+}
+.CounButtonContainer button{
+    display: block;
+    text-align: left;
+    padding-left: 20px;
+    width: 100%;
+    border: none;
+    background-color: transparent;
+}
+.CounButtonContainer button:hover{
+    background-color: rgb(181, 181, 181);
+}
+#countryDetailContainer{
+    margin-top: 20px;
+}
+#countryDetailContainer p{
+    text-align: left;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+#countryDetailContainer h5{
+    margin-top: 20px;
+    text-align: left;
+}
+.hidden{
+    display: none;
+}
+#ascPageButtonContainer button{
+    border: none;
+    background-color: rgb(174, 174, 174);
+    margin: 2px;
+}
+#ascPageButtonContainer button:hover{
+    border: none;
+    background-color: black;
+    color: white;
+}
