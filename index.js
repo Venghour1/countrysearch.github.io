@@ -11,6 +11,7 @@ const pageRowChangeBtn = document.getElementById("pageRowChangeBtn");
 var allCountriesName = [];
 let pageIndex = 1;
 let isLoaded = false;
+let currentPageRow = 25;
 
 // console.log(countryDetailCountainer)
 fetch(`https://restcountries.com/v3.1/all`)
@@ -69,7 +70,29 @@ pageRowChangeBtn.addEventListener("click",function(){
         CounButtonContainer.appendChild(newButton);
     }
 
-//for page button
+    //for page button
+    for(i=0;i<removePageButton;i++){
+        ascPageButtonContainer.removeChild(ascPageButtonContainer.firstElementChild);
+    }
+    for(p=0;p<allCountriesName.length/parseFloat(pageRow.value);p++){
+        let pageButton = document.createElement("button");
+        pageButton.innerHTML = `${p+1}`;
+        let pageIndex1 = p;
+        pageButton.addEventListener('click',function(){
+            if(isLoaded == true){
+                for(k=pageIndex1*currentPageRow;k<pageIndex1*parseFloat(currentPageRow)+parseFloat(currentPageRow);k++){
+                    // console.log(k)
+                    // console.log(allCountriesName[k])
+                    CounButtonContainer.children[k-parseFloat(currentPageRow)*pageIndex1].innerHTML = `${k+1}`+" "+`${allCountriesName[k]}`;
+                }
+            }
+        })
+        ascPageButtonContainer.appendChild(pageButton);
+    }
+})
+
+//new section
+
 for(i=0;i<25;i++){
     CounButtonContainer.children[i].innerHTML =(i+1)+" " + allCountriesName[i];
 }
@@ -164,7 +187,6 @@ for(i=0;i<ascPageButtonContainer.children.length;i++){
     let pageIndex1 = i;
     ascPageButtonContainer.children[i].addEventListener('click',function(){
         if(isLoaded == true){
-
             for(k=pageIndex1*currentPageRow;k<pageIndex1*parseFloat(currentPageRow)+parseFloat(currentPageRow);k++){
                 // console.log(k)
                 // console.log(allCountriesName[k])
